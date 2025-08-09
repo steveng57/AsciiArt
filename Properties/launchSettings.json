@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AsciiArt": {
+      "commandName": "Project",
+      "commandLineArgs": "list-fonts"
+    }
+  }
+}
