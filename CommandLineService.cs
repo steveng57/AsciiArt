@@ -58,14 +58,36 @@ namespace AsciiArt
             Console.WriteLine("Available Figgle fonts:");
             Console.WriteLine();
 
-            var fontNames = GetAvailableFontNames();
-            foreach (var fontName in fontNames.OrderBy(name => name))
-            {
-                Console.WriteLine($"  {fontName}");
-            }
+            var fontNames = GetAvailableFontNames().OrderBy(name => name).ToList();
+            DisplayInColumns(fontNames, 4);
 
             Console.WriteLine();
-            Console.WriteLine($"Total fonts available: {fontNames.Count()}");
+            Console.WriteLine($"Total fonts available: {fontNames.Count}");
+        }
+
+        private static void DisplayInColumns(IList<string> items, int columnCount)
+        {
+            if (!items.Any()) return;
+
+            // Calculate the maximum width needed for each column
+            int maxLength = items.Max(item => item.Length);
+            int columnWidth = maxLength + 2; // Add padding
+
+            // Calculate rows needed
+            int rows = (int)Math.Ceiling((double)items.Count / columnCount);
+
+            for (int row = 0; row < rows; row++)
+            {
+                for (int col = 0; col < columnCount; col++)
+                {
+                    int index = row + (col * rows);
+                    if (index < items.Count)
+                    {
+                        Console.Write(items[index].PadRight(columnWidth));
+                    }
+                }
+                Console.WriteLine();
+            }
         }
 
         private static IEnumerable<string> GetAvailableFontNames()
