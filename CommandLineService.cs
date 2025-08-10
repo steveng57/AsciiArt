@@ -40,6 +40,9 @@ namespace AsciiArt
             var listFontsCommand = new Command("list-fonts", "List all available Figgle fonts");
             listFontsCommand.SetHandler(HandleListFonts);
 
+            var listThemesCommand = new Command("list-themes", "List all available themes");
+            listThemesCommand.SetHandler(HandleListThemes);
+
             var availableThemes = _themeService.GetAvailableThemeNames();
             var themeOption = new Option<string>(
                 new string[] { "--theme", "-th" },
@@ -55,6 +58,7 @@ namespace AsciiArt
             };
 
             rootCommand.AddCommand(listFontsCommand);
+            rootCommand.AddCommand(listThemesCommand);
             rootCommand.SetHandler(HandleAsciiArt, textArg, fontNameOption, themeOption, stdinOption);
 
             var parser = new CommandLineBuilder(rootCommand)
@@ -109,6 +113,18 @@ namespace AsciiArt
 
             Console.WriteLine();
             Console.WriteLine($"Total fonts available: {fontNames.Count}");
+        }
+
+        private void HandleListThemes()
+        {
+            Console.WriteLine("Available themes:");
+            Console.WriteLine();
+
+            var themeNames = _themeService.GetAvailableThemeNames().OrderBy(name => name).ToList();
+            DisplayInColumns(themeNames, 4);
+
+            Console.WriteLine();
+            Console.WriteLine($"Total themes available: {themeNames.Count()}");
         }
 
         private static void DisplayInColumns(IList<string> items, int columnCount)
