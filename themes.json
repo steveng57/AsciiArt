@@ -3,62 +3,194 @@
     "Default": {
       "MessageColor": "Aqua",
       "LabelColor": "Green",
-      "ValueColor": "Yellow"
+      "ValueColor": "Yellow",
+      "MessageBackgroundColor": "Black",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
     },
     "Dark": {
       "MessageColor": "Olive",
       "LabelColor": "Silver",
-      "ValueColor": "Grey"
+      "ValueColor": "Grey",
+      "MessageBackgroundColor": "Grey42",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
     },
     "Light": {
       "MessageColor": "Silver",
       "LabelColor": "Blue",
-      "ValueColor": "Fuchsia"
+      "ValueColor": "Fuchsia",
+      "MessageBackgroundColor": "White",
+      "LabelBackgroundColor": "White",
+      "ValueBackgroundColor": "White"
     },
     "HighContrast": {
       "MessageColor": "White",
       "LabelColor": "Yellow",
-      "ValueColor": "Red"
+      "ValueColor": "Red",
+      "MessageBackgroundColor": "Black",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
     },
     "Blue": {
       "MessageColor": "Blue",
       "LabelColor": "Aqua",
-      "ValueColor": "DeepSkyBlue1"
+      "ValueColor": "DeepSkyBlue1",
+      "MessageBackgroundColor": "DarkBlue",
+      "LabelBackgroundColor": "Navy",
+      "ValueBackgroundColor": "Black"
     },
     "Green": {
       "MessageColor": "Green",
       "LabelColor": "DarkGreen",
-      "ValueColor": "Yellow"
+      "ValueColor": "Yellow",
+      "MessageBackgroundColor": "Black",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
     },
     "Red": {
       "MessageColor": "Red",
       "LabelColor": "DarkRed",
-      "ValueColor": "Fuchsia"
+      "ValueColor": "Fuchsia",
+      "MessageBackgroundColor": "Black",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
     },
     "Purple": {
       "MessageColor": "Fuchsia",
       "LabelColor": "DarkMagenta",
-      "ValueColor": "Purple_1"
+      "ValueColor": "Purple_1",
+      "MessageBackgroundColor": "Black",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
     },
     "Orange": {
       "MessageColor": "Orange1",
       "LabelColor": "DarkOrange",
-      "ValueColor": "LightSalmon1"
+      "ValueColor": "LightSalmon1",
+      "MessageBackgroundColor": "Black",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
     },
     "Pink": {
       "MessageColor": "HotPink",
       "LabelColor": "DeepPink3_1",
-      "ValueColor": "LightPink1"
+      "ValueColor": "LightPink1",
+      "MessageBackgroundColor": "Black",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
     },
     "Cyan": {
       "MessageColor": "Aqua",
       "LabelColor": "DarkCyan",
-      "ValueColor": "LightCyan3"
+      "ValueColor": "LightCyan3",
+      "MessageBackgroundColor": "Black",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
     },
     "Brown": {
       "MessageColor": "RosyBrown",
       "LabelColor": "Orange4_1",
-      "ValueColor": "LightPink4"
+      "ValueColor": "LightPink4",
+      "MessageBackgroundColor": "Black",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
+    },
+    "Inverted": {
+      "MessageColor": "Black",
+      "LabelColor": "Black",
+      "ValueColor": "Black",
+      "MessageBackgroundColor": "White",
+      "LabelBackgroundColor": "Yellow",
+      "ValueBackgroundColor": "Red"
+    },
+    "Matrix": {
+      "MessageColor": "Green1",
+      "LabelColor": "DarkGreen",
+      "ValueColor": "Lime",
+      "MessageBackgroundColor": "Black",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
+    },
+    "Ocean": {
+      "MessageColor": "DeepSkyBlue1",
+      "LabelColor": "DarkCyan",
+      "ValueColor": "Aquamarine1",
+      "MessageBackgroundColor": "Navy",
+      "LabelBackgroundColor": "DarkBlue",
+      "ValueBackgroundColor": "Black"
+    },
+    "Sunset": {
+      "MessageColor": "Orange1",
+      "LabelColor": "DarkOrange",
+      "ValueColor": "Yellow1",
+      "MessageBackgroundColor": "DarkRed",
+      "LabelBackgroundColor": "Maroon",
+      "ValueBackgroundColor": "Black"
+    },
+    "Forest": {
+      "MessageColor": "SpringGreen1",
+      "LabelColor": "Green4",
+      "ValueColor": "Yellow",
+      "MessageBackgroundColor": "DarkGreen",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
+    },
+    "Neon": {
+      "MessageColor": "Fuchsia",
+      "LabelColor": "Lime",
+      "ValueColor": "Aqua",
+      "MessageBackgroundColor": "Black",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
+    },
+    "Vintage": {
+      "MessageColor": "Wheat1",
+      "LabelColor": "SandyBrown",
+      "ValueColor": "Gold1",
+      "MessageBackgroundColor": "Grey27",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
+    },
+    "Ice": {
+      "MessageColor": "LightCyan1",
+      "LabelColor": "SteelBlue1",
+      "ValueColor": "White",
+      "MessageBackgroundColor": "DarkBlue",
+      "LabelBackgroundColor": "Navy",
+      "ValueBackgroundColor": "Black"
+    },
+    "Fire": {
+      "MessageColor": "Red1",
+      "LabelColor": "Orange1",
+      "ValueColor": "Yellow1",
+      "MessageBackgroundColor": "DarkRed",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
+    },
+    "Monochrome": {
+      "MessageColor": "White",
+      "LabelColor": "Silver",
+      "ValueColor": "Grey",
+      "MessageBackgroundColor": "Black",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
+    },
+    "Terminal": {
+      "MessageColor": "Lime",
+      "LabelColor": "Green1",
+      "ValueColor": "White",
+      "MessageBackgroundColor": "Black",
+      "LabelBackgroundColor": "Black",
+      "ValueBackgroundColor": "Black"
+    },
+    "Terminal2": {
+      "MessageColor": "Lime",
+      "LabelColor": "Green1",
+      "ValueColor": "SteelBlue1",
+      "MessageBackgroundColor": "White",
+      "LabelBackgroundColor": "White",
+      "ValueBackgroundColor": "White"
     }
   }
 }

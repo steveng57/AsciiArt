@@ -2,7 +2,7 @@
   "profiles": {
     "AsciiArt": {
       "commandName": "Project",
-      "commandLineArgs": "Debbie Perfetti"
+      "commandLineArgs": "Debbie Perfetti -th blue"
     }
   }
 }

@@ -24,12 +24,17 @@ namespace AsciiArt
         public async Task<int> InvokeAsync(string[] args)
         {
             var textArg = new Argument<string[]>("text", "The text to convert to ASCII art");
-            textArg.Arity = ArgumentArity.OneOrMore;
+            textArg.Arity = ArgumentArity.ZeroOrMore; // Allow zero arguments when using stdin
             
             var fontNameOption = new Option<string>(
                 aliases: new[] { "--font", "-f" },
                 description: "The font to use for ASCII art",
                 getDefaultValue: () => "Standard"
+            );
+
+            var stdinOption = new Option<bool>(
+                aliases: new[] { "--stdin", "-i" },
+                description: "Read text input from stdin instead of arguments"
             );
 
             var listFontsCommand = new Command("list-fonts", "List all available Figgle fonts");
@@ -41,16 +46,16 @@ namespace AsciiArt
                 () => "default", // Default theme
                 "Specify the theme").FromAmong(availableThemes.ToArray());
 
-
             var rootCommand = new RootCommand("ASCII Art Generator - Convert text to ASCII art using Figgle fonts")
             {
                 textArg,
                 fontNameOption,
-                themeOption
+                themeOption,
+                stdinOption
             };
 
             rootCommand.AddCommand(listFontsCommand);
-            rootCommand.SetHandler(HandleAsciiArt, textArg, fontNameOption, themeOption);
+            rootCommand.SetHandler(HandleAsciiArt, textArg, fontNameOption, themeOption, stdinOption);
 
             var parser = new CommandLineBuilder(rootCommand)
                 .UseDefaults()
@@ -59,13 +64,37 @@ namespace AsciiArt
             return await parser.InvokeAsync(args);
         }
 
-        private void HandleAsciiArt(string[] text, string fontName, string theme)
+        private async void HandleAsciiArt(string[] text, string fontName, string theme, bool useStdin)
         {
             // Apply the selected theme
             Theme selectedTheme = _themeService.GetThemeByName(theme);
             _displayService.ApplyTheme(selectedTheme);
 
-            string input = string.Join(" ", text);
+            string input;
+
+            if (useStdin)
+            {
+                // Read from stdin
+                input = await Console.In.ReadToEndAsync();
+                input = input.Trim(); // Remove trailing newlines
+            }
+            else
+            {
+                // Use command line arguments
+                if (text == null || text.Length == 0)
+                {
+                    _displayService.DisplayMessage("Error: No text provided. Use arguments or --stdin option.", SpectreConsoleColor.Red);
+                    return;
+                }
+                input = string.Join(" ", text) + " ";
+            }
+
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                _displayService.DisplayMessage("Error: No text to convert.", SpectreConsoleColor.Red);
+                return;
+            }
+
             (string asciiArt, var font) = _asciiArtService.Render(input, fontName);
             _displayService.DisplayMessage(asciiArt);
         }

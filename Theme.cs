@@ -15,11 +15,19 @@ namespace DisplayService.Models
         [JsonConverter(typeof(SpectreConsoleColorConverter))]
         public SpectreConsoleColor ValueColor { get; set; }
 
+        [JsonConverter(typeof(SpectreConsoleColorConverter))]
+        public SpectreConsoleColor MessageBackgroundColor { get; set; } = SpectreConsoleColor.Black;
+
+        [JsonConverter(typeof(SpectreConsoleColorConverter))]
+        public SpectreConsoleColor LabelBackgroundColor { get; set; } = SpectreConsoleColor.Black;
+
+        [JsonConverter(typeof(SpectreConsoleColorConverter))]
+        public SpectreConsoleColor ValueBackgroundColor { get; set; } = SpectreConsoleColor.Black;
+
         // Parameterless constructor
         [JsonConstructor]
         public Theme() { }
     }
-
 
     public class SpectreConsoleColorConverter : JsonConverter<SpectreConsoleColor>
     {
