@@ -4,16 +4,20 @@ using System.CommandLine.Builder;
 using System.Reflection;
 using Figgle;
 using Figgle.Fonts;
+using DisplayService;
 
 namespace AsciiArt
 {
     public class CommandLineService : ICommandLineService
     {
         private readonly IAsciiArtService _asciiArtService;
-
-        public CommandLineService(IAsciiArtService asciiArtService)
+        private readonly IDisplayService _displayService;
+        private readonly IThemeService _themeService;
+        public CommandLineService(IAsciiArtService asciiArtService, IDisplayService displayService, IThemeService themeService)
         {
             _asciiArtService = asciiArtService;
+            _displayService = displayService;
+            _themeService = themeService;
         }
 
         public async Task<int> InvokeAsync(string[] args)
@@ -30,10 +34,18 @@ namespace AsciiArt
             var listFontsCommand = new Command("list-fonts", "List all available Figgle fonts");
             listFontsCommand.SetHandler(HandleListFonts);
 
+            var availableThemes = _themeService.GetAvailableThemeNames();
+            var themeOption = new Option<string>(
+                new string[] { "--theme", "-th" },
+                () => "default", // Default theme
+                "Specify the theme").FromAmong(availableThemes.ToArray());
+
+
             var rootCommand = new RootCommand("ASCII Art Generator - Convert text to ASCII art using Figgle fonts")
             {
                 textArg,
-                fontNameOption
+                fontNameOption,
+                themeOption
             };
 
             rootCommand.AddCommand(listFontsCommand);
@@ -50,7 +62,7 @@ namespace AsciiArt
         {
             string input = string.Join(" ", text);
             (string asciiArt, var font) = _asciiArtService.Render(input, fontName);
-            Console.WriteLine(asciiArt);    
+            _displayService.DisplayMessage(asciiArt);
         }
 
         private void HandleListFonts()

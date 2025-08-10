@@ -2,7 +2,7 @@
   "profiles": {
     "AsciiArt": {
       "commandName": "Project",
-      "commandLineArgs": "list-fonts"
+      "commandLineArgs": "Debbie Perfetti"
     }
   }
 }

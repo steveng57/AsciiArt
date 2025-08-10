@@ -1,0 +1,64 @@
+{
+  "Themes": {
+    "Default": {
+      "MessageColor": "Aqua",
+      "LabelColor": "Green",
+      "ValueColor": "Yellow"
+    },
+    "Dark": {
+      "MessageColor": "Olive",
+      "LabelColor": "Silver",
+      "ValueColor": "Grey"
+    },
+    "Light": {
+      "MessageColor": "Silver",
+      "LabelColor": "Blue",
+      "ValueColor": "Fuchsia"
+    },
+    "HighContrast": {
+      "MessageColor": "White",
+      "LabelColor": "Yellow",
+      "ValueColor": "Red"
+    },
+    "Blue": {
+      "MessageColor": "Blue",
+      "LabelColor": "Aqua",
+      "ValueColor": "DeepSkyBlue1"
+    },
+    "Green": {
+      "MessageColor": "Green",
+      "LabelColor": "DarkGreen",
+      "ValueColor": "Yellow"
+    },
+    "Red": {
+      "MessageColor": "Red",
+      "LabelColor": "DarkRed",
+      "ValueColor": "Fuchsia"
+    },
+    "Purple": {
+      "MessageColor": "Fuchsia",
+      "LabelColor": "DarkMagenta",
+      "ValueColor": "Purple_1"
+    },
+    "Orange": {
+      "MessageColor": "Orange1",
+      "LabelColor": "DarkOrange",
+      "ValueColor": "LightSalmon1"
+    },
+    "Pink": {
+      "MessageColor": "HotPink",
+      "LabelColor": "DeepPink3_1",
+      "ValueColor": "LightPink1"
+    },
+    "Cyan": {
+      "MessageColor": "Aqua",
+      "LabelColor": "DarkCyan",
+      "ValueColor": "LightCyan3"
+    },
+    "Brown": {
+      "MessageColor": "RosyBrown",
+      "LabelColor": "Orange4_1",
+      "ValueColor": "LightPink4"
+    }
+  }
+}

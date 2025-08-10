@@ -1,8 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using AsciiArt;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using AsciiArt;
+using System;
+using System.Threading.Tasks;
+using DisplayService;
 
 namespace AsciiArtApp;
 class Program
@@ -21,5 +22,7 @@ class Program
             {
                 services.AddSingleton<IAsciiArtService, FiggleAsciiArtService>();
                 services.AddSingleton<ICommandLineService, CommandLineService>();
+                services.AddSingleton<IDisplayService, DisplayService.DisplayService>();
+                services.AddSingleton<IThemeService, ThemeService>();
             });
 }
