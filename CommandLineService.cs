@@ -1,10 +1,11 @@
-using System.CommandLine;
-using System.CommandLine.Parsing;
-using System.CommandLine.Builder;
-using System.Reflection;
+using DisplayService;
+using DisplayService.Models;
 using Figgle;
 using Figgle.Fonts;
-using DisplayService;
+using System.CommandLine;
+using System.CommandLine.Builder;
+using System.CommandLine.Parsing;
+using System.Reflection;
 
 namespace AsciiArt
 {
@@ -49,7 +50,7 @@ namespace AsciiArt
             };
 
             rootCommand.AddCommand(listFontsCommand);
-            rootCommand.SetHandler(HandleAsciiArt, textArg, fontNameOption);
+            rootCommand.SetHandler(HandleAsciiArt, textArg, fontNameOption, themeOption);
 
             var parser = new CommandLineBuilder(rootCommand)
                 .UseDefaults()
@@ -58,8 +59,12 @@ namespace AsciiArt
             return await parser.InvokeAsync(args);
         }
 
-        private void HandleAsciiArt(string[] text, string fontName)
+        private void HandleAsciiArt(string[] text, string fontName, string theme)
         {
+            // Apply the selected theme
+            Theme selectedTheme = _themeService.GetThemeByName(theme);
+            _displayService.ApplyTheme(selectedTheme);
+
             string input = string.Join(" ", text);
             (string asciiArt, var font) = _asciiArtService.Render(input, fontName);
             _displayService.DisplayMessage(asciiArt);
