@@ -9,12 +9,12 @@ using System.Reflection;
 
 namespace AsciiArt
 {
-    public class CommandLineService : ICommandLineService
+    public class AsciiArtAppService : IAsciiArtAppService
     {
         private readonly IAsciiArtService _asciiArtService;
         private readonly IDisplayService _displayService;
         private readonly IThemeService _themeService;
-        public CommandLineService(IAsciiArtService asciiArtService, IDisplayService displayService, IThemeService themeService)
+        public AsciiArtAppService(IAsciiArtService asciiArtService, IDisplayService displayService, IThemeService themeService)
         {
             _asciiArtService = asciiArtService;
             _displayService = displayService;

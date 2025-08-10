@@ -3,7 +3,7 @@ using System.CommandLine;
 
 namespace AsciiArt
 {
-    public interface ICommandLineService
+    public interface IAsciiArtAppService
     {
         public Task<int> InvokeAsync(string[] args);
     }

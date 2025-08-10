@@ -12,8 +12,8 @@ class Program
     {
         var host = CreateHostBuilder(args).Build();
         
-        var commandLineService = host.Services.GetRequiredService<ICommandLineService>();
-        return await commandLineService.InvokeAsync(args);
+        var asciiArtAppService = host.Services.GetRequiredService<IAsciiArtAppService>();
+        return await asciiArtAppService.InvokeAsync(args);
     }
 
     static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -21,7 +21,7 @@ class Program
             .ConfigureServices((context, services) =>
             {
                 services.AddSingleton<IAsciiArtService, FiggleAsciiArtService>();
-                services.AddSingleton<ICommandLineService, CommandLineService>();
+                services.AddSingleton<IAsciiArtAppService, AsciiArtAppService>();
                 services.AddSingleton<IDisplayService, DisplayService.DisplayService>();
                 services.AddSingleton<IThemeService, ThemeService>();
             });
