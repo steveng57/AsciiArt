@@ -108,7 +108,7 @@ namespace AsciiArt
             Console.WriteLine("Available Figgle fonts:");
             Console.WriteLine();
 
-            var fontNames = GetAvailableFontNames().OrderBy(name => name).ToList();
+            var fontNames = _asciiArtService.GetAvailableFontNames().OrderBy(name => name).ToList();
             DisplayInColumns(fontNames, 4);
 
             Console.WriteLine();
@@ -150,16 +150,6 @@ namespace AsciiArt
                 }
                 Console.WriteLine();
             }
-        }
-
-        private static IEnumerable<string> GetAvailableFontNames()
-        {
-            var properties = typeof(FiggleFonts).GetProperties(
-                BindingFlags.Public | BindingFlags.Static);
-
-            return properties
-                .Where(prop => prop.PropertyType == typeof(FiggleFont))
-                .Select(prop => prop.Name);
         }
     }
 }

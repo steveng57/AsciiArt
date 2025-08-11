@@ -1,10 +1,10 @@
 using System;
 using Figgle;
 using Figgle.Fonts;
+using System.Reflection;
 
 namespace AsciiArt
 {
-
     public class FiggleAsciiArtService : IAsciiArtService
     {
         public (string,Figgle.FiggleFont) Render(string input, string fontName)
@@ -12,6 +12,17 @@ namespace AsciiArt
             var font = GetFontByName(fontName);
             return (font.Render(input), font);
         }
+
+        public IEnumerable<string> GetAvailableFontNames()
+        {
+            var properties = typeof(FiggleFonts).GetProperties(
+                BindingFlags.Public | BindingFlags.Static);
+
+            return properties
+                .Where(prop => prop.PropertyType == typeof(FiggleFont))
+                .Select(prop => prop.Name);
+        }
+
         private static FiggleFont GetFontByName(string fontName)
         {
             // Use reflection to get the static property by name
