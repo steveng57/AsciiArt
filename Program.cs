@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using DisplayService;
 
 namespace AsciiArtApp;
+
 class Program
 {
     static async Task<int> Main(string[] args)
     {
         var host = CreateHostBuilder(args).Build();
-        
+
         var asciiArtAppService = host.Services.GetRequiredService<IAsciiArtAppService>();
         return await asciiArtAppService.InvokeAsync(args);
     }

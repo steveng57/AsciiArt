@@ -25,7 +25,7 @@ namespace AsciiArt
         {
             var textArg = new Argument<string[]>("text", "The text to convert to ASCII art");
             textArg.Arity = ArgumentArity.ZeroOrMore; // Allow zero arguments when using stdin
-            
+
             var fontNameOption = new Option<string>(
                 aliases: new[] { "--font", "-f" },
                 description: "The font to use for ASCII art",
